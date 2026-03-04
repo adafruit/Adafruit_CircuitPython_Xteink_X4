@@ -17,7 +17,7 @@ Implementation Notes
 
 * Adafruit CircuitPython firmware for the supported boards:
   https://circuitpython.org/downloads
-  
+
 * Based on the OpenX4 E-Paper Community SDK:
   https://github.com/open-x4-epaper/community-sdk
 
@@ -31,6 +31,7 @@ from digitalio import DigitalInOut, Direction, Pull
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_Xteink_X4.git"
+
 
 class BatteryMonitor:
     """Monitor battery voltage and percentage via an ADC pin with a
@@ -70,13 +71,9 @@ class BatteryMonitor:
         """Estimated battery percentage (0-100) using a cubic fit curve
         for a typical Li-Ion discharge profile."""
         v = self.millivolts / 1000.0
-        y = (
-            -144.9390 * v * v * v
-            + 1655.8629 * v * v
-            - 6158.8520 * v
-            + 7501.3202
-        )
+        y = -144.9390 * v * v * v + 1655.8629 * v * v - 6158.8520 * v + 7501.3202
         return int(max(0.0, min(100.0, round(y))))
+
 
 class InputManager:
     """Manage button input from two ADC channels and a digital power button.
@@ -274,7 +271,8 @@ class InputManager:
 
                 self._current_state = state
 
-    def _button_from_adc(self, raw, ranges, num_buttons):
+    @staticmethod
+    def _button_from_adc(raw, ranges, num_buttons):
         """Map a raw ADC reading to a button index using threshold ranges."""
         for i in range(num_buttons):
             if ranges[i + 1] < raw <= ranges[i]:

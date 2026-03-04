@@ -94,7 +94,7 @@ Usage Example
 
 	battery = BatteryMonitor()
 	buttons = InputManager()
-	
+
 	print(f"Battery: {battery.percentage}% ({battery.volts:.2f}V)")
 
 	while True:
