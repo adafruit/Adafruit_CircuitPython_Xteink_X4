@@ -21,7 +21,7 @@ Introduction
     :target: https://github.com/astral-sh/ruff
     :alt: Code Style: Ruff
 
-CircuitPython helper library to interface with the Xteink X4 eReader
+CircuitPython helper library to interface with the Xteink X4 eReader. Based on the [OpenX4 E-Paper Community SDK](https://github.com/open-x4-epaper/community-sdk).
 
 
 Dependencies
