@@ -90,7 +90,7 @@ Usage Example
 
 .. code-block:: python
 
-	from adafruit_xteink_x4_helper import BatteryMonitor, InputManager
+	from adafruit_xteink_x4 import BatteryMonitor, InputManager
 
 	battery = BatteryMonitor()
 	buttons = InputManager()

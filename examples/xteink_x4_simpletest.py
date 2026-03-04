@@ -8,7 +8,7 @@ Xteink X4 Helper Demo
 Uses button inputs and battery monitor
 """
 
-from adafruit_xteink_x4_helper import BatteryMonitor, InputManager
+from adafruit_xteink_x4 import BatteryMonitor, InputManager
 
 battery = BatteryMonitor()
 buttons = InputManager()
